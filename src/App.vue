@@ -1,5 +1,6 @@
 <script setup>
 import { reactive } from 'vue';
+import Formulario from './components/Formulario.vue';
 
 const estado = reactive({
   operacao: 'adicao',
@@ -44,37 +45,14 @@ function calcularResultado() {
 </script>
 
 <template>
-  <div class="container text-center border border-info mt-4">
+  <div class="row justify-content-center text-body-tertiary">
     <header class="p-5 mb-2 mt-2 text-info">
-      <h1>Calculadora aritmética</h1>
-    </header>
-    <div class="row justify-content-center text-body-tertiary">
-      <div class="col-md-4">
-        <form>
-          <label for="operacao" class="fw-bold mb-2">Escolha uma operação:</label>
-          <select :value="estado.operacao" @input="operacaoMuda" class="form-control text-center mb-3">
-            <option value="adicao">+</option>
-            <option value="subtracao">-</option>
-            <option value="multiplicacao">*</option>
-            <option value="divisao">/</option>
-          </select>
-          <div class="col">
-            <label for="primeiroValor" class="fw-bold mb-1">Insira o primeiro valor: </label>
-            <input :value="estado.primeiroValor" @input="primeiroValorMuda" type="number" class="mb-3 form-control">
-          </div>
-          <div class="col">
-            <label for="segundoValor" class="fw-bold mb-1">Insira o segundo valor: </label>
-            <input :value="estado.segundoValor" @input="segundoValorMuda" type="number" class="mb-3 form-control">
-          </div>
-          <div class="col">
-            <label for="resultado" class="fw-bold mb-1">Resultado: </label>
-            <input :value="estado.resultado" type="number" class="mb-5 form-control">
-          </div>
-        </form>
-      </div>
+    <h1> Calculadora aritmética </h1>
+  </header>
+    <div class="col-md-4">
+      <Formulario :estado="estado" :operacaoMuda="operacaoMuda" :primeiroValorMuda="primeiroValorMuda" :segundoValorMuda="segundoValorMuda" />
     </div>
   </div>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>
